@@ -32,7 +32,7 @@ public class Address {
     private String url;
 
    @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="hotel_id")
     private Hotel hotel;
 
