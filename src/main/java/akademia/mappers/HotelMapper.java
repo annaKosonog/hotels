@@ -42,16 +42,8 @@ public class HotelMapper implements Mapper<Hotel, HotelDTO> {
 
     @Override
     public Hotel reverse(HotelDTO to) {
-        return null;
+        return null ;
     }
 
-    private enum RoomsToString implements Function<Room, String>{
 
-        INSTANCE;
-
-        @Override
-        public String apply(Room room) {
-            return room.toString();
-        }
-    }
 }
