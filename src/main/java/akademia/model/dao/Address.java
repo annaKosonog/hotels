@@ -11,13 +11,12 @@ import org.hibernate.validator.constraints.URL;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-// Jeden Hotel miał jeden Adress
-public class Address {
+public class Address { // Jeden Hotel miał jeden Adress
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +34,7 @@ public class Address {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="hotel_id")
     private Hotel hotel;
+
 
 
     @Override

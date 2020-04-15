@@ -1,6 +1,8 @@
 package akademia.mappers;
 
+import akademia.model.dao.Address;
 import akademia.model.dao.Room;
+import akademia.model.dto.AddressDTO;
 import akademia.model.dto.RoomDTO;
 import akademia.utils.Mapper;
 import org.springframework.stereotype.Component;
@@ -21,4 +23,6 @@ public class RoomMapper implements Mapper<Room, RoomDTO> {
     public Room reverse(RoomDTO to) {
         return null;
     }
+
+
 }
