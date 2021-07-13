@@ -3,8 +3,8 @@ package akademia.mappers;
 import akademia.model.dao.Address;
 import akademia.model.dao.Hotel;
 import akademia.model.dao.Room;
-import akademia.model.dto.HotelDTO;
-import akademia.model.dto.RoomDTO;
+import akademia.model.dto.HotelDto;
+import akademia.model.dto.RoomDto;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 @Component
 public class HotelMapper {
 
-    public static HotelDTO map(Hotel from) {
+    public static HotelDto map(Hotel from) {
 
-        List<RoomDTO> rooms = from.getRooms()
+        List<RoomDto> rooms = from.getRooms()
                 .stream()
                 .map(RoomMapper::map)
                 .collect(Collectors.toList());
 
-        return HotelDTO.builder()
+        return HotelDto.builder()
                 .title(from.getTitle())
                 .partnerCode(from.getPartnerCode())
                 .country(from.getCountry())
@@ -32,7 +32,7 @@ public class HotelMapper {
                 .build();
     }
 
-    public static Hotel reverse(HotelDTO to) {
+    public static Hotel reverse(HotelDto to) {
         final List<Room> roomList = to.getRoomsNumber()
                 .stream()
                 .map(RoomMapper::reverse)

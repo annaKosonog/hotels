@@ -1,14 +1,14 @@
 package akademia.mappers;
 
 import akademia.model.dao.Address;
-import akademia.model.dto.AddressDTO;
+import akademia.model.dto.AddressDto;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AddressMapper {
 
-    public static AddressDTO map(Address from) {
-        return AddressDTO
+    public static AddressDto map(Address from) {
+        return AddressDto
                 .builder()
                 .email(from.getEmail())
                 .phone(from.getPhone())
@@ -18,7 +18,7 @@ public class AddressMapper {
 
     }
 
-    public static Address getAddressFromDTO(AddressDTO from) {
+    public static Address getAddressFromDTO(AddressDto from) {
         Address address = new Address();
         address.setEmail(from.getEmail());
         address.setUrl(from.getUrl());

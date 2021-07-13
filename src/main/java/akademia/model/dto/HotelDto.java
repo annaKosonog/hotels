@@ -10,13 +10,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class HotelDTO {
+public class HotelDto {
     private String title;
     private String partnerCode;
     private String country;
     private String rate;
-    private AddressDTO address;
-    private List<RoomDTO> roomsNumber;
+    private AddressDto address;
+    private List<RoomDto> roomsNumber;
 
     @Override
     public String toString() {

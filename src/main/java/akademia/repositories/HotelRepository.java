@@ -1,7 +1,6 @@
 package akademia.repositories;
 
 import akademia.model.dao.Hotel;
-import akademia.model.dto.HotelDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 

@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoomDTO {
+public class RoomDto {
 
     private String type;
     private String bed;

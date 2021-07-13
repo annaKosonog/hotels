@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressDTO {
+public class AddressDto {
 
     private String postalAddress;
     private String email;
