@@ -16,7 +16,7 @@ import javax.validation.constraints.Email;
 @Getter
 @Setter
 @Entity
-public class Address { // Jeden Hotel miał jeden Adress
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
