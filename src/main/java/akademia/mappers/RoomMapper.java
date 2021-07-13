@@ -1,17 +1,14 @@
 package akademia.mappers;
 
-import akademia.model.dao.Address;
 import akademia.model.dao.Room;
-import akademia.model.dto.AddressDTO;
 import akademia.model.dto.RoomDTO;
-import akademia.utils.Mapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RoomMapper implements Mapper<Room, RoomDTO> {
+public class RoomMapper {
 
-    @Override
-    public RoomDTO map(Room from) {
+
+    public static RoomDTO map(Room from) {
         return RoomDTO.builder()
                 .bed(from.getBed())
                 .capacity(from.getCapacity())
@@ -19,9 +16,12 @@ public class RoomMapper implements Mapper<Room, RoomDTO> {
                 .build();
     }
 
-    @Override
-    public Room reverse(RoomDTO to) {
-        return null;
+    public static Room reverse(RoomDTO to) {
+        return Room.builder()
+                .bed(to.getBed())
+                .capacity(to.getCapacity())
+                .type(to.getType())
+                .build();
     }
 
 

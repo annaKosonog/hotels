@@ -2,25 +2,31 @@ package akademia.mappers;
 
 import akademia.model.dao.Address;
 import akademia.model.dto.AddressDTO;
-import akademia.utils.Mapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AddressMapper implements Mapper<Address, AddressDTO> {
-    @Override
-    public AddressDTO map(Address from) {
+public class AddressMapper {
+
+    public static AddressDTO map(Address from) {
         return AddressDTO
                 .builder()
                 .email(from.getEmail())
                 .phone(from.getPhone())
                 .url(from.getUrl())
-                .postalAddress(from.getCity() + ", " +  from.getStreet() + ", " + from.getStreetNo())
+                .postalAddress(from.getCity() + ", " + from.getStreet() + ", " + from.getStreetNo())
                 .build();
 
     }
 
-    @Override
-    public Address reverse(AddressDTO to) {
-        return null;
+    public static Address getAddressFromDTO(AddressDTO from) {
+        Address address = new Address();
+        address.setEmail(from.getEmail());
+        address.setUrl(from.getUrl());
+        address.setPhone(from.getPhone());
+        String[] addr = from.getPostalAddress().trim().split(",");
+        address.setCity(addr[0]);
+        address.setStreet(addr[1]);
+        address.setStreetNo(addr[2]);
+        return address;
     }
 }
