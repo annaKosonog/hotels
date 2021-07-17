@@ -1,9 +1,12 @@
 package akademia.model.dao;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import org.apache.commons.lang3.builder.ToStringExclude;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -19,6 +22,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,6 +33,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@EqualsAndHashCode
+@ToString
 public class Hotel {
 
     @Id
@@ -40,13 +46,15 @@ public class Hotel {
     @Column(length = 36)
     private String partnerCode;
 
-    @NotNull
+    @NotBlank
     private String title;
-    @NotNull
+    @NotBlank
     private String country;
+    @NotBlank
     private String rate;
 
-    //  @JsonIgnore
+    @ToStringExclude
+    @EqualsAndHashCode.Exclude
     @OneToOne(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Address address;
 

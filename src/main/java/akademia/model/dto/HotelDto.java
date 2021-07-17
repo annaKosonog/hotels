@@ -10,6 +10,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
+@EqualsAndHashCode
 public class HotelDto {
     private String title;
     private String partnerCode;
@@ -18,16 +20,6 @@ public class HotelDto {
     private AddressDto address;
     private List<RoomDto> roomsNumber;
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this.getClass().getName())
-                .append("title", title)
-                .append("partnerCode", partnerCode)
-                .append("country", country)
-                .append("rate", rate)
-                .append("address", address)
-                .append("rooms", roomsNumber)
-                .toString();
-    }
+
 
 }

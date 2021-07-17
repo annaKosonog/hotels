@@ -99,7 +99,6 @@ public abstract class SampleHotel implements SampleAddress, SampleRoom {
         newClarkHotel.setPartnerCode("0b25d2b9-5573-4d38-a81f-de982bb554b6");
         newClarkHotel.setCountry("Hungary");
         newClarkHotel.setRate("4");
-        newClarkHotel.getAddress().setPostalAddress("Budapeszt, Kraviec, 10/13");
         newClarkHotel.getAddress().setEmail("reservation@hotelclarkbudapest.hu");
         newClarkHotel.getAddress().setPhone("+36 1611 4890");
         newClarkHotel.getAddress().setUrl("https://hotelclarkbudapest.hu/en/");

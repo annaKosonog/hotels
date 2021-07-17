@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class AddressDto {
 
     private String postalAddress;
@@ -19,14 +21,5 @@ public class AddressDto {
 
     //todo dodać dane geograficzne z google maps
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this)
-                .append("postalAddress", postalAddress)
-                .append("email", email)
-                .append("phone", phone)
-                .append("url", url)
-                .toString();
-    }
 }
 

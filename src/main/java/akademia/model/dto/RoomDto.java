@@ -8,18 +8,11 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class RoomDto {
 
     private String type;
     private String bed;
     private String capacity;
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this)
-                .append("type", type)
-                .append("bed", bed)
-                .append("capacity", capacity)
-                .toString();
-    }
 }
