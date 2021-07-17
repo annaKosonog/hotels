@@ -14,13 +14,14 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Entity
 @ToString
+@EqualsAndHashCode
 public class Room {
 
     @Id
