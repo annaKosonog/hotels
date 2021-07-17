@@ -34,16 +34,4 @@ public class Room {
     @JsonIgnore
     @ManyToMany(mappedBy = "rooms")
     private List<Hotel> hotels;
-
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this)
-                .append("id", id)
-                .append("type", type)
-                .append("bed", bed)
-                .append("capacity", capacity)
-                .append("hotels", hotels)
-                .toString();
-    }
 }

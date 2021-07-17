@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import lombok.ToString;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.CascadeType;
@@ -28,6 +28,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @Entity
 @EqualsAndHashCode
+@ToString
 public class Address {
 
     @Id
@@ -53,19 +54,4 @@ public class Address {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
-
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this)
-                .append("id", id)
-                .append("city", city)
-                .append("street", street)
-                .append("streetNo", streetNo)
-                .append("email", email)
-                .append("phone", phone)
-                .append("url", url)
-                .append("hotel", hotel)
-                .toString();
-    }
 }
