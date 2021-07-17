@@ -1,5 +1,6 @@
 package akademia.services.DTO;
 
+import akademia.exception.ResourceNotFoundException;
 import akademia.model.dao.Hotel;
 import akademia.model.dao.SampleHotel;
 import akademia.model.dto.HotelDto;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -115,11 +117,21 @@ public class HotelServiceDtoUnitTest extends SampleHotel {
         //THEN
         assertThat(update.getTitle()).isEqualTo("Prestige Hotel Budapest");
         assertThat(clarkHotelDto()).isNotSameAs(update);
+    }
+
+    @Test
+    void should_throws_exception_when_hotel_by_partner_code_hundred(){
+        //GIVEN
+        //WHEN
+        final String PARTNER_CODE = "100";
+        when(hotelRepository.findHotelByPartnerCode(PARTNER_CODE)).thenReturn(Optional.empty());
+        //THEN
+        assertThrows(ResourceNotFoundException.class, ()-> hotelServiceDTO.getHotelByPartnerCode(PARTNER_CODE));
 
     }
 
     @Test
-    void should_return_new_hotel_abaut_name_valamar_padova_Hotel() {
+    void should_return_new_hotel_about_name_valamar_padova_Hotel() {
         //GIVEN
         when(hotelRepository.save(any(Hotel.class))).thenReturn(valamarPadovaHotel());
 
