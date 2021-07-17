@@ -22,7 +22,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -45,10 +45,11 @@ public class Hotel {
     @Column(length = 36)
     private String partnerCode;
 
-    @NotNull
+    @NotBlank
     private String title;
-    @NotNull
+    @NotBlank
     private String country;
+    @NotBlank
     private String rate;
 
     @ToStringExclude
