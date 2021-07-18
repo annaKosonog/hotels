@@ -29,7 +29,6 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @Entity
 @EqualsAndHashCode
-@ToString
 public class Address {
 
     @Id

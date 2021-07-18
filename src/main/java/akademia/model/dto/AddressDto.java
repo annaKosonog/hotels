@@ -1,6 +1,12 @@
 package akademia.model.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.URL;
 
 import javax.validation.Valid;
@@ -20,21 +26,19 @@ import java.io.Serializable;
 public class AddressDto implements Serializable {
 
     private static final long serialVersionUID = -4856846361193249489L;
-
     @Valid
     @NotBlank(message = "{postalAddress.not.blank}")
     private String postalAddress;
     @Email
     private String email;
     @NotBlank(message = "{phone.not.blank}")
-    @Size(max = 13)
+    @Size(max = 15)
     private String phone;
     @URL
-
     private String url;
 }
 
-    //todo dodać dane geograficzne z google maps
+//todo dodać dane geograficzne z google maps
 
 
 
