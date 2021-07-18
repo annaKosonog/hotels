@@ -11,6 +11,7 @@ import lombok.ToString;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -48,6 +49,7 @@ public class Address {
     @NotBlank
     private String phone;
     @URL
+    @Column(unique = true)
     private String url;
 
     @JsonIgnore
