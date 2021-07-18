@@ -30,6 +30,7 @@ public class AddressDto implements Serializable {
     @Size(max = 13)
     private String phone;
     @URL
+
     private String url;
 }
 
