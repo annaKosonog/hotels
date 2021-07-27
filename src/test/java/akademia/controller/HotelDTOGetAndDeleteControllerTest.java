@@ -177,7 +177,8 @@ class MockMvcConfig extends SampleHotel implements ResourceNotFoundExceptionTest
             @Override
             public HotelDto updateHotel(HotelDto hotelDTO, String partnerCode) {
                 if ("0b25d2b9-5573-4d38-a81f-de982bb554b6".equals(partnerCode)) {
-                    return updateClarkHotelDto();
+                    hotelDTO = updateClarkHotelDto();
+                    return hotelDTO;
                 }
                 throw resourceNotFoundExceptionTest(partnerCode);
             }

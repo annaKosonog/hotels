@@ -90,7 +90,7 @@ public interface SampleRoom {
     }
 
     default RoomDto singleBedBudapestDto() {
-        return objectRoomDtoWithoutId("individula", "single", "4");
+        return objectRoomDtoWithoutId("individual", "single", "4");
     }
 
     default Room exampleOne() {
