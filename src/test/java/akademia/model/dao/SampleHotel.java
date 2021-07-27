@@ -1,6 +1,5 @@
 package akademia.model.dao;
 
-import akademia.model.dao.Hotel;
 import akademia.model.dto.AddressDto;
 import akademia.model.dto.HotelDto;
 import akademia.model.dto.RoomDto;
@@ -105,4 +104,23 @@ public abstract class SampleHotel implements SampleAddress, SampleRoom {
         newClarkHotel.setRoomsNumber(roomList);
         return newClarkHotel;
     }
+
+    public HotelDto invalidUpdateClarkHotelDto() {
+
+        List<RoomDto> roomList = new ArrayList<>();
+        roomList.add(singleBedBudapestDto());
+
+        HotelDto newClarkHotel = clarkHotelDto();
+        newClarkHotel.setTitle("");
+        newClarkHotel.setPartnerCode("0b25d2b9-5573-4d38-a81f-de982bb554b6");
+        newClarkHotel.setCountry("");
+        newClarkHotel.setRate("");
+        newClarkHotel.getAddress().setPostalAddress("");
+        newClarkHotel.getAddress().setEmail("reservation@hotelclarkbudapest.hu");
+        newClarkHotel.getAddress().setPhone("");
+        newClarkHotel.getAddress().setUrl("https://hotelclarkbudapest.hu/en/");
+        newClarkHotel.setRoomsNumber(roomList);
+        return newClarkHotel;
+    }
+
 }

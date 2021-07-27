@@ -20,4 +20,7 @@ public class HotelControllerErrorHandler {
         log.error("404 Status Code", exception);
         return new HotelErrorResponse(HttpStatus.NOT_FOUND, message);
     }
+
+
+
 }

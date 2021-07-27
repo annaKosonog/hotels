@@ -1,6 +1,5 @@
 package akademia.controllers.DTO;
 
-import akademia.model.dao.Hotel;
 import akademia.model.dto.HotelDto;
 import akademia.repositories.HotelRepository;
 import akademia.services.DTO.HotelServiceDto;
@@ -8,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -87,14 +84,14 @@ public class HotelDtoController {
 
     @PutMapping("/hotels/{partnerCode}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<HotelDto> updateHotel(@RequestBody HotelDto hotelDto, @PathVariable String partnerCode) {
-        log.info("Updating Hotel with partner code {}", hotelDto.getPartnerCode());
-        final Optional<Hotel> hotelDate = hotelRepository.findHotelByPartnerCode(partnerCode);
-        if (hotelDate.isPresent()) {
+    public ResponseEntity<HotelDto> updateHotel(@Valid @RequestBody HotelDto hotelDto, @PathVariable("partnerCode") String partnerCode) {
+        try {
             final HotelDto newHotelDto = hotelServiceDTO.updateHotel(hotelDto, partnerCode);
+            log.info("Updating Hotel with partner code {}", hotelDto.getPartnerCode());
             return new ResponseEntity<>(newHotelDto, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            log.info(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
